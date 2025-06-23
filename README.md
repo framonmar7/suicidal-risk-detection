@@ -22,12 +22,10 @@ DJANGO_DEBUG=True
 DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1
 ```
 
-3. **Apply migrations and build static files**:
+3. **Prepare the backend**:
 
 ```bash
 python manage.py migrate
-npm install --prefix frontend
-npm run build --prefix frontend
 python manage.py collectstatic --noinput
 ```
 
