@@ -1,5 +1,7 @@
 # 🧠 Suicidal Risk Detection
 
+**Live demo available at [suicidal-risk.framonmar7.dev](https://suicidal-risk.framonmar7.dev)**
+
 This is a full-stack web application designed to detect suicidal risk in user-submitted text. It is built using **React** and **Django**. The backend uses a trained machine learning model to analyze text and return risk predictions.
 
 ## ⚙️ Setup Instructions
