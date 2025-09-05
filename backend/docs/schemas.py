@@ -1,20 +1,26 @@
 from drf_yasg import openapi
 
-success_text_response = openapi.Schema(
+comment_param = openapi.Schema(
     type=openapi.TYPE_OBJECT,
     properties={
-        "label": openapi.Schema(
+        "comment": openapi.Schema(
             type=openapi.TYPE_STRING,
-            enum=["NO_RISK", "RISK"],
-            example="RISK"
-        ),
-        "score": openapi.Schema(
-            type=openapi.TYPE_NUMBER,
-            format="float",
-            example=0.9231
+            example="I don't want to live anymore"
         ),
     },
-    required=["label", "score"],
+    required=["comment"],
+)
+
+success_text_response = openapi.Response(
+    description="Binary classification result",
+    schema=openapi.Schema(
+        type=openapi.TYPE_OBJECT,
+        properties={
+            "label": openapi.Schema(type=openapi.TYPE_STRING, enum=["NO_RISK", "RISK"], example="RISK"),
+            "score": openapi.Schema(type=openapi.TYPE_NUMBER, format="float", example=0.9231),
+        },
+        required=["label", "score"],
+    ),
 )
 
 bad_text_response = openapi.Response(
@@ -22,10 +28,7 @@ bad_text_response = openapi.Response(
     schema=openapi.Schema(
         type=openapi.TYPE_OBJECT,
         properties={
-            "error": openapi.Schema(
-                type=openapi.TYPE_STRING,
-                example="Empty comment."
-            )
+            "error": openapi.Schema(type=openapi.TYPE_STRING, example="Empty comment"),
         },
         required=["error"],
     ),
@@ -36,10 +39,7 @@ internal_error_response = openapi.Response(
     schema=openapi.Schema(
         type=openapi.TYPE_OBJECT,
         properties={
-            "error": openapi.Schema(
-                type=openapi.TYPE_STRING,
-                example="Unexpected error while processing the text"
-            )
+            "error": openapi.Schema(type=openapi.TYPE_STRING, example="Unexpected error while processing the text"),
         },
         required=["error"],
     ),

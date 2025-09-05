@@ -4,7 +4,7 @@ from rest_framework import status
 class EmptyText(APIException):
     status_code = status.HTTP_400_BAD_REQUEST
 
-    def __init__(self, detail="Empty comment."):
+    def __init__(self, detail="Empty comment"):
         super().__init__({"error": detail})
 
 class TextTooShort(APIException):
