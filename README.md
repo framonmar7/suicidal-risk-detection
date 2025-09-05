@@ -2,7 +2,19 @@
 
 This is a full-stack web application designed to detect suicidal risk in user-submitted text. It is built using **React** and **Django**. The backend uses a trained machine learning model to analyze text and return risk predictions.
 
-**Live demo available at [suicidal-risk.framonmar7.dev](https://suicidal-risk.framonmar7.dev)**
+---
+
+## 🚀 Deployment
+
+When deployed, the project exposes two main entrypoints:
+
+- **Root domain** → serves the web application (frontend + backend integration).  
+  👉 [https://suicidal-risk.framonmar7.dev](https://suicidal-risk.framonmar7.dev)  
+
+- **`/docs`** → provides interactive API documentation (Swagger UI).  
+  👉 [https://suicidal-risk.framonmar7.dev/docs](https://suicidal-risk.framonmar7.dev/docs)  
+
+---
 
 ## 🔬 Model
 
@@ -12,6 +24,8 @@ You can explore and download the model on Hugging Face:
 👉 [https://huggingface.co/framonmar7/depression-classifier](https://huggingface.co/framonmar7/depression-classifier)
 
 > ⚠️ This model is experimental and must not be used for real-life decisions. It has not been clinically validated. Its purpose is strictly technical and research-oriented.
+
+---
 
 ## ⚙️ Setup Instructions
 
