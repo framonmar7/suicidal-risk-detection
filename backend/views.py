@@ -8,6 +8,15 @@ LABELS = {
     "LABEL_1": "RISK"
 }
 
+@api_view(["GET"])
+def index(request):
+    return Response({
+        "message": "Welcome to the Suicide Risk Detection API",
+        "endpoints": {
+            "detect": "/api/detect"
+        }
+    })
+
 @api_view(["POST"])
 def detection_view(request):
     comment = request.data.get("comment", "").strip()
