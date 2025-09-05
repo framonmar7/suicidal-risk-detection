@@ -1,6 +1,6 @@
 from drf_yasg import openapi
 
-text_output_schema = openapi.Schema(
+success_text_response = openapi.Schema(
     type=openapi.TYPE_OBJECT,
     properties={
         "label": openapi.Schema(
@@ -17,16 +17,8 @@ text_output_schema = openapi.Schema(
     required=["label", "score"],
 )
 
-error_output_schema = openapi.Schema(
-    type=openapi.TYPE_OBJECT,
-    properties={
-        "error": openapi.Schema(type=openapi.TYPE_STRING, example="Error message here"),
-    },
-    required=["error"],
-)
-
-empty_text_response = openapi.Response(
-    description="Empty or invalid input text",
+bad_text_response = openapi.Response(
+    description="Invalid input text (empty, too short, or too long)",
     schema=openapi.Schema(
         type=openapi.TYPE_OBJECT,
         properties={
@@ -54,7 +46,7 @@ internal_error_response = openapi.Response(
 )
 
 text_responses = {
-    200: text_output_schema,
-    400: empty_text_response,
+    200: success_text_response,
+    400: bad_text_response,
     500: internal_error_response,
 }
