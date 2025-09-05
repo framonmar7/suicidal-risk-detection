@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import DetectionAPIView
+from .views import detection_view
 
 urlpatterns = [
-    path("detect/", DetectionAPIView.as_view()),
+    path("detect/", detection_view, name="detection"),
 ]
